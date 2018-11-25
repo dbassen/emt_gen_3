@@ -1,0 +1,20 @@
+
+# transcription
+induction_gene_RhoA,gene_RhoA,mRNA_RhoA,RNAP;
+induction_gene_ROCK,gene_ROCK,mRNA_ROCK,RNAP;
+induction_gene_YAP1,gene_YAP1,mRNA_YAP1,RNAP;
+
+
+
+# translation
+translation_mRNA_TGFB3,mRNA_TGFB3,TGFB3,RIBOSOME;
+
+translation_mRNA_RhoA,gene_RhoA,mRNA_RhoA,RNAP;
+translation_mRNA_ROCK,gene_ROCK,mRNA_ROCK,RNAP;
+translation_mRNA_YAP1,gene_YAP1,mRNA_YAP1,RNAP;
+
+# mRNA
+
+# Protein
+deactivation_pSmad,PPase,pSmad,Smad,0,inf;
+degradation_TGFB12_R,[],TGFB12_R,[],0,inf;

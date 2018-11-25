@@ -1,0 +1,34 @@
+# ----------------------------------------------------------------------------------- #
+transfer_function_vector_1 = Float64[];
+transfer_function_vector_0 = Float64[];
+transfer_function_vector = Float64[];
+
+# activation_Ecadherin_by_Active_NFATc target: induction_gene_Ecadherin actor: Active_NFATc type: induction
+push!(transfer_function_vector_0,(control_parameter_array[6,1]*(Active_NFATc)^control_parameter_array[6,2])/(1+control_parameter_array[6,1]*(Active_NFATc)^control_parameter_array[6,2]));
+# repression_Ecadherin_by_pSmad target: induction_gene_Ecadherin actor: pSmad type: repression
+if (pSmad<EPSILON);
+	push!(transfer_function_vector,1.0);
+else
+	push!(transfer_function_vector,1.0 - (control_parameter_array[7,1]*(pSmad)^control_parameter_array[7,2])/(1+control_parameter_array[7,1]*(pSmad)^control_parameter_array[7,2]));
+end
+
+# repression_Ecadherin_by_SNAIL_SLUG target: induction_gene_Ecadherin actor: SNAIL_SLUG type: repression
+if (SNAIL_SLUG*Active_LEF1<EPSILON);
+	push!(transfer_function_vector_1,1.0);
+else
+	push!(transfer_function_vector_1,1.0 - (control_parameter_array[8,1]*(SNAIL_SLUG*Active_LEF1)^control_parameter_array[8,2])/(1+control_parameter_array[8,1]*(SNAIL_SLUG*Active_LEF1)^control_parameter_array[8,2]));
+end
+
+# repression_Ecadherin_by_Active_LEF1 target: induction_gene_Ecadherin actor: Active_LEF1 type: repression
+if (Active_LEF1*pSmad<EPSILON);
+	push!(transfer_function_vector_1,1.0);
+else
+	push!(transfer_function_vector_1,1.0 - (control_parameter_array[9,1]*(Active_LEF1*pSmad)^control_parameter_array[9,2])/(1+control_parameter_array[9,1]*(Active_LEF1*pSmad)^control_parameter_array[9,2]));
+end
+
+# activation_Ecadherin_by_ecad_virus target: induction_gene_Ecadherin actor: ecad_virus type: induction
+push!(transfer_function_vector_0,(control_parameter_array[10,1]*(ecad_virus)^control_parameter_array[10,2])/(1+control_parameter_array[10,1]*(ecad_virus)^control_parameter_array[10,2]));
+control_vector[125] = mean(maximum(transfer_function_vector_0),minimum(transfer_function_vector_1));
+transfer_function_vector = 0;
+# ----------------------------------------------------------------------------------- #
+

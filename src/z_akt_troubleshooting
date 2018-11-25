@@ -1,0 +1,23 @@
+# akt troubleshooting
+
+# 34	CD31_phosphorylation_Akt: Akt =(CD31)=> pAkt
+
+# 87	deactivation_pAkt: pAkt =(PPase)=> Akt
+
+# 96	degradation_Akt: Akt =([])=> []
+
+# 97	degradation_pAkt: pAkt =([])=> []
+
+# 152	degradation_mRNA_Akt: mRNA_Akt = []
+
+# CD31_phosphorylation_Akt: Akt =(CD31)=> pAkt	 species: Akt
+# deactivation_pAkt: pAkt =(PPase)=> Akt	 species: pAkt
+
+
+this mistake!
+
+It needs to be active ROCK
+ROCK_inhibition_Sequester_YAP1,ROCK,Sequester_YAP1,inhibition;
+
+ANOTHER BIG ERROR! will changes many indices 
+degradation_Sequestered_YAP1,[],degradation_Sequestered_YAP1,[],0,inf;

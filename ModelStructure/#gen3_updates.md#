@@ -1,0 +1,11 @@
+#pragma handler_class = VLCGSignalTransductionParserDelegate
+1. add shear stress transduction (for each upstream element)
+  - For YAP1 permissive pathway, let YAP be activated by a function decreasing with magnitude 
+  - 
+#pragma handler_class = VLCGSignalTransductionControlParserDelegate
+
+#pragma handler_class = VLCGGeneExpressionParserDelegate
+
+#pragma handler_class = VLCGTranslationParserDelegate
+
+#pragma handler_class = VLCGGeneExpressionControlParserDelegate
