@@ -132,6 +132,7 @@ tscript_mult = 0.2 # 0.033
   end
   # return
   # println("final return")
+  writedlm("../output/parameters.dat", data_dictionary)
   return XSS;
 
 end
@@ -182,14 +183,19 @@ end
   return (TSIM,X,initial_condition_array)
 
 end
-
+# edited to fix run_regen for shear experiments
 function SolveModelGenericPOETS(TSTART,TSTOP,Ts,local_data_dictionary,simulation)
 
-  include(simulation)
-  # !!!! I think th initial condition array update is not required
-  #UpdateArray(data_dictionary,"INITIAL_CONDITION_ARRAY",initial_cond_update_array)
-  UpdateArray(local_data_dictionary,"RATE_CONSTANT_ARRAY",rate_constant_update_array)
+ include(simulation)
+  # println(simulation)
+ # println(initial_cond_update_array)
+ UpdateArray(local_data_dictionary,"RATE_CONSTANT_ARRAY",rate_constant_update_array)
 
+  if initial_cond_update_array  != []#WCB
+  UpdateArray(local_data_dictionary,"INITIAL_CONDITION_ARRAY",initial_cond_update_array )
+  #println("ran")
+  end
+  #println(initial_cond_update_array)
   # Run the simulation -
   # println(TSTOP)
   (TSIM,X) = SolveBalances(TSTART,TSTOP,Ts,local_data_dictionary);

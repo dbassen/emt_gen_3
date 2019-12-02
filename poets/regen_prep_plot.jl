@@ -78,7 +78,7 @@ for i in 1:popsize
     ##### What data_dictionary should be loaded here??? clearly the active one
 
     sim_ICA = simulations_ICA[i_simdat]
-
+    println(sim_ICA)
     data_dictionary_active = deepcopy(xss_data_dict)
     (TSIM,X) = SolveModelGeneric_ram_regen(TSTART,TSTOP,Ts,data_dictionary_active,sim,sim_ICA)
 

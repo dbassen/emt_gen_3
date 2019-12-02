@@ -90,7 +90,7 @@ control_parameter_array[23,2] = 1.5;	#	23 Order: 	activation_CD1_by_SHEAR_STRESS
 
 
 # # # #
-# factoy method in the data_dictionary
+# factor method in the data_dictionary
 data_dictionary["CONTROL_PARAMETER_ARRAY"]=control_parameter_array
 #println(data_dictionary["CONTROL_PARAMETER_ARRAY"])
 
@@ -108,7 +108,7 @@ initial_condition_array = vec(XSS);
 #@show data_dictionary["RATE_CONSTANT_ARRAY"][141]
 
 writedlm("../output/xss.dat", XSS)
-
+#writedlm("../output/parameters.dat", data_dictionary)
 data_dictionary["INITIAL_CONDITION_ARRAY"] = initial_condition_array;
 xss_data_dict = deepcopy(data_dictionary)
 

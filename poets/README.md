@@ -1,5 +1,6 @@
 # To run
-julia  run_emt_poets.jl
+#julia  run_emt_poets.jl
+julia run_emt_poets.jl /home/dbassen/Dropbox/server_swap_space/gen_3_model/poets  > run_emt_poets.out
 # Dependencies
 emt_grn_model_objective_function.jl executes ODEs and computes objective functions.
 - The edit files specify conditions for each experiment and are called via ../src/spin_up_edits.jl which loads them into memory to avoid disk hits
